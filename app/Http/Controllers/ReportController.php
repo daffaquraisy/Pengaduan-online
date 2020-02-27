@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Gate;
 
 class ReportController extends Controller
 {
@@ -12,6 +13,11 @@ class ReportController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+    }
+
     public function index(Request $request)
     {
         $reports = \App\Report::with('users')->paginate(10);
@@ -62,7 +68,7 @@ class ReportController extends Controller
         $new_report->user_id = \Auth::user()->id;
 
         $new_report->save();
-        return redirect()->route('home')->with('status', 'Laporan berhasil dikirim');
+        return redirect()->route('landing')->with('status', 'Laporan berhasil dikirim');
     }
 
     /**
@@ -84,8 +90,12 @@ class ReportController extends Controller
      */
     public function edit($id)
     {
-        $report = \App\Report::findOrFail($id);
-        return view('reports.edit', ['report' => $report]);
+
+        if (Gate::allows('edit-reports')) {
+            $report = \App\Report::findOrFail($id);
+            return view('reports.edit', ['report' => $report]);
+        }
+        abort(403, 'Anda tidak memiliki cukup hak akses');
     }
 
     /**
@@ -97,16 +107,16 @@ class ReportController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $report = new \App\Report;
-        $report->tanggal = Carbon::now();
-        $report->status = $request->get('status');
+        if (Gate::allows('update-reports')) {
+            $report = \App\Report::findOrFail($id);
+            $report->tanggal = Carbon::now();
+            $report->status = $request->get('status');
 
-        $report->user_id = \Auth::user()->id;
+            $report->save();
 
-        $report->save();
-
-
-        return redirect()->route('reports.index', [$id])->with('status', 'Kasus berhadil diupdate');
+            return redirect()->route('reports.index', [$id])->with('status', 'Kasus berhasil diupdate');
+        }
+        abort(403, 'Anda tidak memiliki cukup hak akses');
     }
 
     /**
@@ -117,6 +127,12 @@ class ReportController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if (Gate::allows('delete-reports')) {
+            $report = \App\Report::findOrFail($id);
+            $report->delete();
+
+            return redirect()->route('reports.index', [$id])->with('status', 'Kasus berhasil dihapus');
+        }
+        abort(403, 'Anda tidak memiliki cukup hak akses');
     }
 }

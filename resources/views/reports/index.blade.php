@@ -37,6 +37,7 @@
         <tr>
             <th><b>Judul Laporan</b></th>
             <th><b>Pengirim</b></th>
+            <th><b>Tanggal</b></th>
             <th><b>Foto</b></th>
             <th><b>Status</b></th>
             <th><b>Action</b></th>
@@ -49,6 +50,8 @@
             <td>{{$report->judul_laporan}}</td>
 
             <td>{{$report->users->name}}</td>
+            <td>{{$report->tanggal}}</td>
+
 
             <td>
                 @if($report->image)
@@ -72,7 +75,7 @@
             <td>
                 <a class="btn btn-info text-white btn-sm" href="{{route('reports.edit', [$report->id])}}">Edit</a>
 
-                <a href="{{route('reports.show', [$report->id])}}" class="btn btn-primary btn-sm">Detail</a>
+                {{-- <a href="{{route('reports.show', [$report->id])}}" class="btn btn-primary btn-sm">Detail</a> --}}
 
                 <form onsubmit="return confirm('Delete this report permanently?')" class="d-inline"
                     action="{{route('reports.destroy', [$report->id ])}}" method="POST">

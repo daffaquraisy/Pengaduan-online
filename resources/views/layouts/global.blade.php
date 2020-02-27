@@ -75,11 +75,19 @@
                     <li><a href="/home"><span class="oi oi-home"></span> Home</a>
                     </li>
 
+                    @can('manage-users', $user ?? '')
                     <li>
                         <a href="{{route('users.index')}}">
                         <span class="oi oi-people"></span> Manage Users
                         </a>
                     </li>  
+                    @endcan 
+
+                    <li>
+                        <a href="{{route('reports.index')}}">
+                            <span class="oi oi-inbox"></span> Manage Reports
+                        </a>
+                    </li>
                     
                     {{-- <li>
                         <a href="{{route('categories.index')}}">

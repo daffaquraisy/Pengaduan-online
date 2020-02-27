@@ -24,9 +24,7 @@
             <br>
 
             <b>Roles:</b> <br>
-            @foreach (json_decode($user->roles) as $role)
-            &middot; {{$role}} <br>
-            @endforeach
+            {{$user->roles}}
         </div>
     </div>
 </div>

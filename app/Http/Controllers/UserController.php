@@ -10,7 +10,14 @@ use Illuminate\Support\Facades\Gate;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(function ($request, $next) {
 
+            if (Gate::allows('manage-users')) return $next($request);
+            abort(403, 'Anda tidak memiliki cukup hak akses');
+        });
+    }
 
     /**
      * Display a listing of the resource.
@@ -77,7 +84,8 @@ class UserController extends Controller
         $new_user = new \App\User;
         $new_user->name = $request->get('name');
         $new_user->username = $request->get('username');
-        $new_user->roles = json_encode($request->get('roles'));
+        $arrayTostring = implode(',', $request->input('roles'));
+        $new_user['roles'] = $arrayTostring;
         $new_user->no_telp = $request->get('no_telp');
         $new_user->email = $request->get('email');
         $new_user->password = Hash::make($request->get('password'));
@@ -127,7 +135,8 @@ class UserController extends Controller
 
         $user = \App\User::findOrFail($id);
         $user->name = $request->get('name');
-        $user->roles = json_encode($request->get('roles'));
+        $arrayTostring = implode(',', $request->input('roles'));
+        $new_user['roles'] = $arrayTostring;
         $user->username = $request->get('username');
         $user->email = $request->get('email');
         $user->no_telp = $request->get('no_telp');
