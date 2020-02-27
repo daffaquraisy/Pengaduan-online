@@ -11,14 +11,6 @@ use Illuminate\Support\Facades\Gate;
 class UserController extends Controller
 {
 
-    public function __construct()
-    {
-        $this->middleware(function ($request, $next) {
-
-            if (Gate::allows('manage-users')) return $next($request);
-            abort(403, 'Anda tidak memiliki cukup hak akses');
-        });
-    }
 
     /**
      * Display a listing of the resource.
@@ -76,7 +68,7 @@ class UserController extends Controller
             'name' => 'required|min:5',
             'username' => 'required|min:5|max:20',
             'roles' => 'required',
-            'no_telp' => 'required|digits_between:10,12',
+            'no_telp' => 'required',
             'password' => 'required',
             'email' => 'required',
             'password_confirmation' => 'required|same:password'
@@ -129,10 +121,8 @@ class UserController extends Controller
     {
         \Validator::make($request->all(), [
             "name" => "required|min:5|max:100",
-            "username" => "required|min:5|max:100",
             "roles" => "required",
-            "email" => "required",
-            "no_telp" => "required|digits_between:10,12",
+            "no_telp" => "required",
         ])->validate();
 
         $user = \App\User::findOrFail($id);
