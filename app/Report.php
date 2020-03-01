@@ -12,4 +12,9 @@ class Report extends Model
     {
         return $this->belongsTo('App\User', 'user_id');
     }
+
+    public function advices()
+    {
+        return $this->hasMany('App\Report');
+    }
 }

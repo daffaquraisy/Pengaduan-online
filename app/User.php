@@ -42,14 +42,8 @@ class User extends Authenticatable
         return $this->hasMany('App\User');
     }
 
-    public function isRole()
+    public function advices()
     {
-        if ($this->ADMIN) {
-            return true;
-        } elseif ($this->PETUGAS) {
-            return true;
-        }
-
-        return false;
+        return $this->hasMany('App\User');
     }
 }

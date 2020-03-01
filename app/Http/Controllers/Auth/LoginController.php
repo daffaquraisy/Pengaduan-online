@@ -46,7 +46,7 @@ class LoginController extends Controller
         if ($user->roles == 'ADMIN') {
             return redirect()->route('home');
         } elseif ($user->roles == 'PETUGAS') {
-            return redirect()->route('home');
+            return redirect()->route('reports.index');
         } elseif ($user->roles == 'MASYARAKAT') {
             return redirect()->route('landing');
         }

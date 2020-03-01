@@ -14,21 +14,20 @@ class ReportController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function __construct()
-    {
-    }
-
     public function index(Request $request)
     {
-        $reports = \App\Report::with('users')->paginate(10);
+        if (Gate::allows('manage-reports')) {
+            $reports = \App\Report::with('users')->paginate(10);
 
-        $filterKeyword = $request->get('keyword');
+            $filterKeyword = $request->get('keyword');
 
-        if ($filterKeyword) {
-            $reports = \App\Report::where('judul_laporan', 'LIKE', "%$filterKeyword%")->paginate(10);
+            if ($filterKeyword) {
+                $reports = \App\Report::where('judul_laporan', 'LIKE', "%$filterKeyword%")->paginate(10);
+            }
+
+            return view('reports.index', ['reports' => $reports]);
         }
-
-        return view('reports.index', ['reports' => $reports]);
+        abort(403, 'Anda tidak memiliki cukup hak akses');
     }
 
     /**
@@ -38,7 +37,7 @@ class ReportController extends Controller
      */
     public function create()
     {
-        return view('reports.create');
+        // return view('reports.create');
     }
 
     /**
@@ -91,7 +90,7 @@ class ReportController extends Controller
     public function edit($id)
     {
 
-        if (Gate::allows('edit-reports')) {
+        if (Gate::allows('manage-reports')) {
             $report = \App\Report::findOrFail($id);
             return view('reports.edit', ['report' => $report]);
         }
@@ -107,7 +106,7 @@ class ReportController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if (Gate::allows('update-reports')) {
+        if (Gate::allows('manage-reports')) {
             $report = \App\Report::findOrFail($id);
             $report->tanggal = Carbon::now();
             $report->status = $request->get('status');
@@ -127,7 +126,7 @@ class ReportController extends Controller
      */
     public function destroy($id)
     {
-        if (Gate::allows('delete-reports')) {
+        if (Gate::allows('manage-reports')) {
             $report = \App\Report::findOrFail($id);
             $report->delete();
 

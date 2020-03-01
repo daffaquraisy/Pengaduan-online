@@ -15,9 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/landing', function () {
-    return view('landing');
-})->name('landing');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/landing', function () {
+        return view('landing');
+    })->name('landing');
+
+    Route::get('/see_advices', 'AdviceController@showAdvices');
+});
 
 Auth::routes();
 
@@ -26,3 +30,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('users', 'UserController');
 
 Route::resource('reports', 'ReportController');
+
+Route::get('/ajax/advices/search', 'AdviceController@ajaxSearch');
+Route::resource('advices', 'AdviceController');

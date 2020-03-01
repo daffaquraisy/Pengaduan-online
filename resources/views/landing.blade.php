@@ -19,7 +19,7 @@
 
 <body>
 
-  <header style="background: linear-gradient(90deg, #ff512f 0%, #dd2476 100%)">
+  <header class="fixed-top"style="background: linear-gradient(90deg, #ff512f 0%, #dd2476 100%)">
     <div class="container">
       <nav class="navbar navbar-expand-md no-gutters ">
         <div class="col-2 text-left">
@@ -30,21 +30,23 @@
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4"
           aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon text-white"></span>
         </button>
 
         <div class="collapse navbar-collapse justify-content-center col-md-8" id="navbarNav4">
           <ul class="navbar-nav justify-content-center">
             <li class="nav-item active">
-              <a class="nav-link" href="">HOME</a>
+              <a class="nav-link" href="/landing">HOME</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="">SERVICES</a>
+              <a class="nav-link" href="#SERVICES">SERVICES</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="">CONTACT US</a>
+              <a class="nav-link" href="#CONTACT">CONTACT US</a>
             </li>
-
+            <li class="nav-item">
+              <a class="nav-link" href="/see_advices">ADVICE</a>
+            </li>
 
           </ul>
         </div>
@@ -73,12 +75,12 @@
 
 
   <!-- Contents 15 -->
-  <section class="fdb-block" style="background-image: url(../template/imgs/shapes/8.svg)">
+  <section class="fdb-block" style="background: linear-gradient(90deg, #ff512f 0%, #dd2476 100%)">
     <div class="container">
       <div class="row align-items-center">
         <div class="col-12 col-md-6 col-lg-5">
-          <h1>Laporkan keresahan mu</h1>
-          <p class="lead">Disini kami siap untuk menyelesaikan masalah mu, tim kami akan siap 24 jam untuk melayani
+          <h1 class="text-white">Laporkan keresahan mu</h1>
+          <p class="lead text-white">Disini kami siap untuk menyelesaikan masalah mu, tim kami akan siap 24 jam untuk melayani
             masyarakat !</p>
         </div>
         <div class="col-10 col-sm-6 m-auto col-md-4 pt-4 pt-md-0">
@@ -88,7 +90,7 @@
     </div>
   </section>
 
-  <section class="fdb-block">
+  <section class="fdb-block" id="SERVICES">
     <div class="container">
       <div class="row text-center">
         <div class="col-12">
@@ -119,7 +121,7 @@
   </section>
 
   <!-- Contacts 4 -->
-  <section class="fdb-block py-0">
+  <section class="fdb-block py-0" id="CONTACT">
     <div class="container py-5 my-5" style="background-image: url(template/imgs/shapes/9.svg);">
       <div class="row py-5">
         <div class="col py-5">
@@ -183,20 +185,24 @@
   </section>
 
   <!-- Footers 2 -->
-  <footer class="fix-bottom fdb-block footer-small" style="background: linear-gradient(90deg, #ff512f 0%, #dd2476 100%)">
+  <footer class="fixed-bottom fdb-block footer-small" style="background: linear-gradient(90deg, #ff512f 0%, #dd2476 100%)">
     <div class="container">
       <div class="row align-items-center">
         <div class="col-12 col-md-8">
-          <ul class="nav justify-content-center justify-content-md-start">
+          <ul data-spy="scroll" class="nav justify-content-center justify-content-md-start">
             <li class="nav-item active">
-                <a class="nav-link" href="">HOME</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="">SERVICES</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="">CONTACT US</a>
-              </li>
+              <a class="nav-link" href="/landing">HOME</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#SERVICES">SERVICES</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#CONTACT">CONTACT US</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/see_advices">ADVICE</a>
+            </li>
+
               
             
           </ul>

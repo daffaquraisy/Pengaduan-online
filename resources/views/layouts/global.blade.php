@@ -72,10 +72,12 @@
                 <ul class="polished-sidebar-menu ml-0 pt-4 p-0 d-md-block">
                     <input class="border-dark form-control d-block d-md-none mb-4" type="text" placeholder="Search"
                         aria-label="Search" />
+
+                    @can('manage-users', $user ?? '')
+
                     <li><a href="/home"><span class="oi oi-home"></span> Home</a>
                     </li>
 
-                    @can('manage-users', $user ?? '')
                     <li>
                         <a href="{{route('users.index')}}">
                         <span class="oi oi-people"></span> Manage Users
@@ -86,6 +88,12 @@
                     <li>
                         <a href="{{route('reports.index')}}">
                             <span class="oi oi-inbox"></span> Manage Reports
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{route('advices.index')}}">
+                            <span class="oi oi-inbox"></span> Manage Tanggapan
                         </a>
                     </li>
                     
