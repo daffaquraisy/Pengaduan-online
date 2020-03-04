@@ -28,7 +28,14 @@
     <div class="col-md-12 text-right">
         <a href="{{route('reports.create')}}" class="btn btn-primary">Create report</a>
     </div>
+
+    <div class="col-md-12 text-right mt-3">
+        <a class="btn btn-info" href="{{ url('/pdf/reports') }}">
+            <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Create pdf </a>
+    </div>
 </div>
+
+
 
 <br>
 

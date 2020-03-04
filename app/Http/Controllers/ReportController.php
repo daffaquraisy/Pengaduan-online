@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Gate;
+use PDF;
 
 class ReportController extends Controller
 {
@@ -134,5 +135,16 @@ class ReportController extends Controller
             return redirect()->route('reports.index', [$id])->with('status', 'Kasus berhasil dihapus');
         }
         abort(403, 'Anda tidak memiliki cukup hak akses');
+    }
+
+    public function exportPdf()
+    {
+        $data =  array();
+        $data['users'] = \App\User::all();
+        $reports = \App\Report::with('users')->paginate(20);
+        $data = \App\Report::get();
+        $pdf = PDF::loadview('pdf.reports', compact('data'));
+        //$pdf->save(storage_path().'_filename.pdf');
+        return $pdf->stream('reports.pdf');
     }
 }

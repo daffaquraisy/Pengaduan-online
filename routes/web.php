@@ -29,6 +29,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('users', 'UserController');
 
+Route::get('/pdf/reports', 'ReportController@exportPdf');
 Route::resource('reports', 'ReportController');
 
 Route::get('/ajax/advices/search', 'AdviceController@ajaxSearch');
