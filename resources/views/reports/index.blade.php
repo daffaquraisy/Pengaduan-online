@@ -75,7 +75,7 @@
             <td>
                 <a class="btn btn-info text-white btn-sm" href="{{route('reports.edit', [$report->id])}}">Edit</a>
 
-                {{-- <a href="{{route('reports.show', [$report->id])}}" class="btn btn-primary btn-sm">Detail</a> --}}
+                <a href="{{route('reports.show', [$report->id])}}" class="btn btn-primary btn-sm">Detail</a>
 
                 <form onsubmit="return confirm('Delete this report permanently?')" class="d-inline"
                     action="{{route('reports.destroy', [$report->id ])}}" method="POST">

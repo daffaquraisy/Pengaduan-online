@@ -173,7 +173,7 @@
                     
                     <br>
             
-                        <input class="btn btn-mine" type="submit" value="Save">
+                        <input class="btn btn-mine" type="submit" value="Kirim">
             
                 </form>
               </div>

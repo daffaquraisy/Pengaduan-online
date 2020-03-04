@@ -85,6 +85,9 @@
                     </li>  
                     @endcan 
 
+                    @can('manage-reports', $user ?? '')
+
+
                     <li>
                         <a href="{{route('reports.index')}}">
                             <span class="oi oi-inbox"></span> Manage Reports
@@ -96,6 +99,7 @@
                             <span class="oi oi-inbox"></span> Manage Tanggapan
                         </a>
                     </li>
+                    @endcan
                     
                     {{-- <li>
                         <a href="{{route('categories.index')}}">

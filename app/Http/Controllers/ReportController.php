@@ -78,7 +78,8 @@ class ReportController extends Controller
      */
     public function show($id)
     {
-        //
+        $report = \App\Report::with('users')->findOrFail($id);
+        return view('reports.show', ['report' => $report]);
     }
 
     /**
