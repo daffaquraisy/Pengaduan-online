@@ -62,13 +62,13 @@
                                         <a class="active" href="#">HOME</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="#">SERVICES</a>
+                                        <a href="#SERVICES">SERVICES</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="#">CONTACT</a>
+                                        <a href="#CONTACT">CONTACT</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="#">ADVICE</a>
+                                        <a href="#ADVICE">ADVICE</a>
                                     </li>
                                 </ul>
                             </div>
@@ -101,7 +101,7 @@
                                     report tu us and we'll
                                     arrive as soon as possible to help you out.</p>
                                 <div class="header-btn rounded-buttons">
-                                    <a class="main-btn rounded-one" href="#">CONTACT US</a>
+                                    <a class="main-btn rounded-one" href="#CONTACT">CONTACT US</a>
                                 </div>
 
                             </div> <!-- header content -->
@@ -124,7 +124,7 @@
 
     <!--====== HEADER ONE PART ENDS ======-->
 
-    <section class="services-area services-one">
+    <section class="services-area services-one" id="SERVICES">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
@@ -185,7 +185,7 @@
         </div> <!-- container -->
     </section>
 
-    <section class="pricing-area pt-50">
+    <section class="pricing-area pt-50" id="ADVICES">
         <div class="container">
             <div class="row">
                 <div class="section-title">
@@ -221,7 +221,7 @@
         </div> <!-- container -->
     </section>
 
-    <section class="contact-area pt-50 pb-100">
+    <section class="contact-area pt-50 pb-100" id="CONTACT">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
