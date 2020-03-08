@@ -12,15 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/landing', function () {
-        return view('landing');
-    })->name('landing');
 
-    Route::get('/see_advices', 'AdviceController@showAdvices');
+    Route::get('/landing', 'AdviceController@showAdvices')->name('landing');;
 });
 
 Auth::routes();

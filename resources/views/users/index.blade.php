@@ -32,6 +32,8 @@
 
 <br>
 
+<div class="table-responsive mt-3">
+
 <table class="table table-bordered">
     <thead>
         <tr>
@@ -76,4 +78,5 @@
         </tr>
     </tfoot>
 </table>
+</div>
 @endsection

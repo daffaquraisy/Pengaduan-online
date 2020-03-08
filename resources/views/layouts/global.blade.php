@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>SPP @yield('title')</title>
+    <title>Pengaduan @yield('title')</title>
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
     <link rel="icon" href="{{asset('assets/img/icon.ico')}}" type="image/x-icon" />
 
@@ -47,7 +47,7 @@
             <div class="logo-header" data-background-color="blue">
 
                 <i class="fas fa-laptop fa-2x text-white"></i>
-                <h3 class="ml-3 mr-3 text-white"><b>SPP Online</b></h3>
+                <h3 class="ml-3 mr-3 text-white"><b>Report</b></h3>
                 <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
                     data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon">
@@ -104,27 +104,7 @@
                         </div>
                     </div>
                     <ul class="nav nav-primary">
-                        {{-- <li class="nav-item active">
-                            <a data-toggle="collapse" href="#dashboard" class="collapsed" aria-expanded="false">
-                                <i class="fas fa-home"></i>
-                                <p>Dashboard</p>
-                                <span class="caret"></span>
-                            </a>
-                            <div class="collapse" id="dashboard">
-                                <ul class="nav nav-collapse">
-                                    <li>
-                                        <a href="../demo1/index.html">
-                                            <span class="sub-item">Dashboard 1</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="../demo2/index.html">
-                                            <span class="sub-item">Dashboard 2</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li> --}}
+                        
 
                         <li class="nav-section">
                             <span class="sidebar-mini-icon">
@@ -134,29 +114,26 @@
                         </li>
                         @can('manage-users', $user ?? '')
 
-                    <li><a href="/home"><span class="oi oi-home"></span> Home</a>
-                    </li>
-
-                    <li>
-                        <a href="{{route('users.index')}}">
-                        <span class="oi oi-people"></span> Manage Users
-                        </a>
-                    </li>  
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('users.index')}}">
+                                <i class="fas fa-fw fa-users"></i>
+                                <span>Manage Users</span></a>
+                        </li>
                     @endcan 
 
                     @can('manage-reports', $user ?? '')
 
 
-                    <li>
-                        <a href="{{route('reports.index')}}">
-                            <span class="oi oi-inbox"></span> Manage Reports
-                        </a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('reports.index')}}">
+                            <i class="fas fa-fw fa-inbox"></i>
+                            <span>Manage Reports</span></a>
                     </li>
 
-                    <li>
-                        <a href="{{route('advices.index')}}">
-                            <span class="oi oi-inbox"></span> Manage Tanggapan
-                        </a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('advices.index')}}">
+                            <i class="fas fa-fw fa-inbox"></i>
+                            <span>Manage Advice</span></a>
                     </li>
                     @endcan
                     

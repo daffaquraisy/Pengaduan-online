@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card mt-5">
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
@@ -49,6 +49,10 @@
 
                             </div>
                         </div>
+                        <hr>
+                    <a href="{{ route('register')}}" class="btn btn-google btn-user btn-block">
+                      <i class="fas fa-user fa-fw"></i> Create new Account !
+                    </a>
                     </form>
                 </div>
             </div>

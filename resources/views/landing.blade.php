@@ -75,7 +75,13 @@
 
                             <div class="navbar-btn d-none d-sm-inline-block">
                                 <ul>
-                                    <li><a class="solid" href="#">Logout</a></li>
+                                    <li>
+                                      <form action="{{route("logout")}}" method="POST">
+                                        @csrf
+
+                                      <button class="btn btn-solid text-white font-weight-bold" href="#" >LOGOUT</button>
+                                      </form>
+                                    </li>
                                 </ul>
                             </div>
                         </nav> <!-- navbar -->
@@ -183,20 +189,32 @@
         <div class="container">
             <div class="row">
                 <div class="section-title">
-                    <h3 class="title">Advice</h3>
+                    <h3 class="title">Advices</h3>
                 </div>
             </div>
             <div class="row justify-content-center">
 
+              @foreach ($advices as $a)
+
                 <div class="col-lg-4 col-md-7 col-sm-9">
                     <div class="pricing-style-twelve mt-40">
 
+
                         <div class="pricing-header text-center">
-                            <h5 class="sub-title mb-3">Basic</h5>
-                            <p class="year">Lorem ipsum dolor sit amet consectetur adipisicing elit. A, expedita!</p>
+                            <h5 class="sub-title mb-2">{{$a->reports->judul_laporan}}</h5>
+                            <p class="mt-2">{{$a->tanggapan}}</p>
+
+                            <strong class="mt-4">{{$a->users->name}}, {{$a->tanggal_tanggapan}}</strong>
+
                         </div>
+
+
+
                     </div> <!-- single pricing -->
                 </div>
+
+                @endforeach
+
 
 
             </div> <!-- row -->
@@ -211,14 +229,25 @@
                         <h3 class="title">Contact Us</h3>
                     </div>
                     <div class="contact-form form-style-four mt-15">
-                        <form action="#">
-                            <div class="row">
+                      @if(session('status'))
+                      <div class="alert alert-success mb-2 mt-2">
+                          {{session('status')}}
+                      </div>
+                      @endif 
+                      <form enctype="multipart/form-data" action="{{route('reports.store')}}" method="POST">
+                        @csrf
+                        <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-input mt-15">
                                         <label>Judul Laporan</label>
                                         <div class="input-items default">
                                             <i class='lni lni-clipboard'></i>
-                                            <input type="text" placeholder="Masukan judul laporan">
+                                            <input value="{{old('judul_laporan')}}" class="form-control {{$errors->first('judul_laporan') ? "is-invalid": ""}}" placeholder="Judul Laporan" type="text" name="judul_laporan" id="judul_laporan"/>
+
+                                            <div class="invalid-feedback">
+                                              {{$errors->first('judul_laporan')}}
+                                           </div>
+
                                         </div>
                                     </div> <!-- form input -->
                                 </div>
@@ -228,7 +257,11 @@
                                         <label>Isi Laporan</label>
                                         <div class="input-items default">
                                             <i class="lni-pencil-alt"></i>
-                                            <textarea placeholder="Tuliskan pesan laporan mu di sini"></textarea>
+                                            <textarea name="isi_laporan" id="isi_laporan" class="form-control {{$errors->first('isi_laporan') ? "is-invalid" : ""}} "placeholder="Masukan isi laporan">{{old('isi_laporan')}}</textarea>
+            
+                                        <div class="invalid-feedback">
+                                            {{$errors->first('isi_laporan')}}
+                                        </div>
                                         </div>
                                     </div> <!-- form input -->
                                 </div>
@@ -238,7 +271,10 @@
                                         <div class="input-items default">
 
                                             <i class='lni lni-image'></i>
-                                            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                            <input type="file" class="form-control {{$errors->first('image') ? "is-invalid" : ""}}" name="image">
+                                            <div class="invalid-feedback">
+                                              {{$errors->first('image')}}
+                                          </div>
                                         </div>
                                     </div> <!-- form input -->
                                 </div>
@@ -246,6 +282,7 @@
                                     <div class="single-form pt-25">
                                         <div class="input-form rounded-buttons">
                                             <button class="main-btn rounded-three" type="submit">SEND MESSAGE</button>
+
                                         </div>
                                     </div> <!-- single form -->
                                 </div>
@@ -265,13 +302,6 @@
                     <div class="col-lg-12">
                         <div class="copyright text-center d-md-flex justify-content-between align-items-center">
                             <p class="text">Copyright Ujikom © 2020. All Rights Reserved</p>
-                            <!-- <ul class="social">
-                                <li><a href="https://facebook.com/uideckHQ"><i class="lni-facebook-filled"></i></a></li>
-                                <li><a href="https://twitter.com/uideckHQ"><i class="lni-twitter-original"></i></a></li>
-                                <li><a href="https://instagram.com/uideckHQ"><i class="lni-instagram-original"></i></a>
-                                </li>
-                                <li><a href="#"><i class="lni-linkedin-original"></i></a></li>
-                            </ul> -->
                         </div> <!-- copyright -->
                     </div>
                 </div> <!-- row -->

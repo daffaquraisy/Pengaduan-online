@@ -25,9 +25,6 @@
 @endif
 
 <div class="row">
-    <div class="col-md-12 text-right">
-        <a href="{{route('reports.create')}}" class="btn btn-primary">Create report</a>
-    </div>
 
     <div class="col-md-12 text-right mt-3">
         <a class="btn btn-info" href="{{ url('/pdf/reports') }}">
@@ -38,6 +35,8 @@
 
 
 <br>
+
+<div class="table-responsive mt-3">
 
 <table class="table table-bordered">
     <thead>
@@ -102,5 +101,7 @@
             </td>
         </tr>
     </tfoot>
+    
 </table>
+</div>
 @endsection

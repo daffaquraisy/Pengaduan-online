@@ -74,7 +74,7 @@ class AdviceController extends Controller
     public function showAdvices()
     {
         $advices = \App\Advice::with('users')->with('reports')->paginate(10);
-        return view('advices', ['advices' => $advices]);
+        return view('landing', ['advices' => $advices]);
     }
 
     /**
