@@ -1,233 +1,306 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 
 <head>
-  <title>Pengaduan Online</title>
-  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css?family=Lato|Montserrat:500&display=swap" rel="stylesheet">
-  <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"> -->
-  <link rel="stylesheet" href="{{asset('template/css/mycss.css')}}">
-  <link type="text/css" rel="stylesheet" href="{{asset('template/css/froala_blocks.css')}}">
-  <style>
-    .fdb-block {
-      border-bottom: 1px solid var(--light);
-    }
-  </style>
+
+    <!--====== Required meta tags ======-->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+
+    <meta name="author" content="Ayro UI">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--====== Title ======-->
+    <title>Pengaduan Online</title>
+
+    <!--====== Favicon Icon ======-->
+    <link rel="shortcut icon" href="{{asset('template/images/favicon.ico')}}" type="image/png">
+
+    <!--====== Bootstrap css ======-->
+    <link rel="stylesheet" href="{{asset('template/css/bootstrap.min.css')}}">
+
+    <!--====== Line Icons css ======-->
+    <link rel="stylesheet" href="{{asset('template/css/LineIcons.css')}}">
+    <link rel="stylesheet" href="https://cdn.lineicons.com/2.0/LineIcons.css">
+
+    <!--====== Default css ======-->
+    <link rel="stylesheet" href="{{asset('template/css/default.css')}}">
+
+    <!--====== Style css ======-->
+    <link rel="stylesheet" href="{{asset('template/css/style.css')}}">
+
+
 </head>
 
 <body>
 
-  <header class="fixed-top"style="background: linear-gradient(90deg, #ff512f 0%, #dd2476 100%)">
-    <div class="container">
-      <nav class="navbar navbar-expand-md no-gutters ">
-        <div class="col-2 text-left">
-          <a href="">
-            <i class="fas fa-shield-alt fa-2x" style="color: #dd2476;"></i>
-          </a>
-        </div>
+    <!--====== HEADER ONE PART START ======-->
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4"
-          aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon text-white"></span>
-        </button>
+    <section class="header-area header-one">
 
-        <div class="collapse navbar-collapse justify-content-center col-md-8" id="navbarNav4">
-          <ul class="navbar-nav justify-content-center">
-            <li class="nav-item active">
-              <a class="nav-link" href="/landing">HOME</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#SERVICES">SERVICES</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#CONTACT">CONTACT US</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/see_advices">ADVICE</a>
-            </li>
+        <div class="navbar-area navbar-one navbar-transparent">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="#">
+                                <img src="template/images/logo-4.svg" alt="Logo">
+                            </a>
 
-          </ul>
-        </div>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarOne"
+                                aria-controls="navbarOne" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
 
-        <div class="collapse navbar-collapse justify-content-between col-md-4" id="navbarNav4">
-            <ul class="navbar-nav justify-content-between">
-              
-              <li class="nav-item">
-                  <a class="nav-link" href="">{{Auth::user()->email}}</a>
-                </li>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarOne">
+                                <ul class="navbar-nav m-auto">
+                                    <li class="nav-item">
+                                        <a class="active" href="#">HOME</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#">SERVICES</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#">CONTACT</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#">ADVICE</a>
+                                    </li>
+                                </ul>
+                            </div>
 
-                <li class="nav-item">
-                    <form action="{{route("logout")}}" method="POST">
-                        @csrf
-                        <button class="btn btn-mine">Logout</button>
-                    </form>
-                  </li>
-  
-            </ul>
-          </div>
-
-
-      </nav>
-    </div>
-  </header>
-
-
-  <!-- Contents 15 -->
-  <section class="fdb-block" style="background: linear-gradient(90deg, #ff512f 0%, #dd2476 100%)">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-12 col-md-6 col-lg-5">
-          <h1 class="text-white">Laporkan keresahan mu</h1>
-          <p class="lead text-white">Disini kami siap untuk menyelesaikan masalah mu, tim kami akan siap 24 jam untuk melayani
-            masyarakat !</p>
-        </div>
-        <div class="col-10 col-sm-6 m-auto col-md-4 pt-4 pt-md-0">
-          <img alt="image" class="img-fluid rounded-0" src="{{URL::asset('template/imgs/draws/security.svg')}}">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="fdb-block" id="SERVICES">
-    <div class="container">
-      <div class="row text-center">
-        <div class="col-12">
-          <h1>Services</h1>
-        </div>
-      </div>
-
-      <div class="row text-center justify-content-center mt-5">
-        <div class="col-12 col-sm-4 col-xl-3 m-md-auto">
-          <i class="fdb-icon fas fa-fist-raised fa-4x" style="color:#6C63FF;"></i>
-          <h3 class="mt-4"><strong>Siap 24 jam</strong></h3>
-          <p>Kami siap 24 jam untuk membantu masyarakat yang butuh jasa kami.</p>
-        </div>
-
-        <div class="col-12 col-sm-4 col-xl-3 m-auto pt-4 pt-sm-0">
-          <i class="fdb-icon fas fa-thumbs-up fa-4x" style="color:#FF7F3C;"></i>
-          <h3 class="mt-4"><strong>Pelayanan memuaskan</strong></h3>
-          <p>Kami bisa pastikan jasa kami tidak akan mengecewakan, karna kami sudah sangat profesional.</p>
-        </div>
-
-        <div class="col-12 col-sm-4 col-xl-3 m-auto pt-4 pt-sm-0">
-          <i class="fdb-icon fas fa-user-shield fa-4x" style="color:#00B0FF;"></i>
-          <h3 class="mt-4"><strong>Dijamin aman</strong></h3>
-          <p>Kami jaminkan keamanan bagi mereka yang mengadukan masalah mereka disini.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contacts 4 -->
-  <section class="fdb-block py-0" id="CONTACT">
-    <div class="container py-5 my-5" style="background-image: url(template/imgs/shapes/9.svg);">
-      <div class="row py-5">
-        <div class="col py-5">
-          <div class="fdb-box fdb-touch-mine">
-            <div class="row text-center justify-content-center">
-              <div class="col-12 col-md-9 col-lg-7">
-                <h1>Contact Us</h1>
-                <p class="lead">Cepat hubungi kami dan beritahu masalah yang harus kami selesaikan !</p>
-                @if(session('status'))
-                <div class="alert alert-success">
-                    {{session('status')}}
-                </div>
-                @endif 
-              </div>
-
-            </div>
-
-            <div class="row justify-content-center pt-4">
-              <div class="col-12 col-md-8">
-                <form enctype="multipart/form-data" action="{{route('reports.store')}}" method="POST">
-
-                    @csrf
-            
-                    <label for="judul_laporan">Judul Laporan</label>
-            
-                        <input value="{{old('judul_laporan')}}" class="form-control {{$errors->first('judul_laporan') ? "is-invalid": ""}}" placeholder="Judul Laporan" type="text" name="judul_laporan" id="judul_laporan"/>
-            
-                         <div class="invalid-feedback">
-                            {{$errors->first('judul_laporan')}}
-                         </div>
-            
-                    <br>
-            
-                    <label for="isi_laporan">Isi Laporan</label><br>
-                        <textarea name="isi_laporan" id="isi_laporan" class="form-control {{$errors->first('isi_laporan') ? "is-invalid" : ""}} "placeholder="Masukan isi laporan">{{old('isi_laporan')}}</textarea>
-            
-                        <div class="invalid-feedback">
-                            {{$errors->first('isi_laporan')}}
-                        </div>
-                        <br>
-            
-                        
-                    <label>Image</label>
-                    <input type="file" class="form-control {{$errors->first('image') ? "is-invalid" : ""}}" name="image">
-                    <div class="invalid-feedback">
-                        {{$errors->first('image')}}
+                            <div class="navbar-btn d-none d-sm-inline-block">
+                                <ul>
+                                    <li><a class="solid" href="#">Logout</a></li>
+                                </ul>
+                            </div>
+                        </nav> <!-- navbar -->
                     </div>
-            
-                    
-                    <br>
-            
-                        <input class="btn btn-mine" type="submit" value="Kirim">
-            
-                </form>
-              </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </div>
+
+        <div class="header-content-area d-flex align-items-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="header-wrapper">
+                            <div class="header-content">
+                                <h3 class="header-title">Fast and Good</h3>
+                                <p class="text">If you have trobles or facing problems that you can't solve, you can
+                                    report tu us and we'll
+                                    arrive as soon as possible to help you out.</p>
+                                <div class="header-btn rounded-buttons">
+                                    <a class="main-btn rounded-one" href="#">CONTACT US</a>
+                                </div>
+
+                            </div> <!-- header content -->
+
+                            <div class="header-image d-none d-lg-block">
+                                <div class="image">
+                                    <img src="template/images/logo.svg" alt="Header">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+            <div class="header-shape">
+                <img src="template/images/header/header-shape-2.svg" alt="shape">
+            </div> <!-- header-shape -->
+        </div> <!-- header content area -->
+    </section>
+
+    <!--====== HEADER ONE PART ENDS ======-->
+
+    <section class="services-area services-one">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="section-title">
+                        <h4 class="title">Services</h4>
+                        <p class="text">We offer a great services to you all</p>
+                    </div> <!-- section title -->
+                </div>
+            </div> <!-- row -->
+            <div class="row">
+                <div class="col-lg">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="services-content mt-40 d-sm-flex">
+                                <div class="services-icon">
+                                    <i class="lni lni-target"></i>
+                                </div>
+                                <div class="services-content media-body">
+                                    <h4 class="services-title">Smash</h4>
+                                    <p class="text">We'll make sure your problems is solve.</p>
+                                </div>
+                            </div> <!-- services content -->
+                        </div>
+                        <div class="col-md-3">
+                            <div class="services-content mt-40 d-sm-flex">
+                                <div class="services-icon">
+                                    <i class='lni lni-consulting'></i> </div>
+                                <div class="services-content media-body">
+                                    <h4 class="services-title">Consulting</h4>
+                                    <p class="text">Free constuling for a lifetime.</p>
+                                </div>
+                            </div> <!-- services content -->
+                        </div>
+                        <div class="col-md-3">
+                            <div class="services-content mt-40 d-sm-flex">
+                                <div class="services-icon">
+                                    <i class='lni lni-thumbs-up'></i> </div>
+                                <div class="services-content media-body">
+                                    <h4 class="services-title">Trusted</h4>
+                                    <p class="text">Don't doubt our work, it always great.</p>
+                                </div>
+                            </div> <!-- services content -->
+                        </div>
+                        <div class="col-md-3">
+                            <div class="services-content mt-40 d-sm-flex">
+                                <div class="services-icon">
+                                    <i class='lni lni-protection'></i>
+                                </div>
+                                <div class="services-content media-body">
+                                    <h4 class="services-title">Protection</h4>
+                                    <p class="text">We offer 100% protection to customers.</p>
+                                </div>
+                            </div> <!-- services content -->
+                        </div>
+                    </div> <!-- row -->
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </section>
+
+    <section class="pricing-area pt-50">
+        <div class="container">
+            <div class="row">
+                <div class="section-title">
+                    <h3 class="title">Advice</h3>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+            <div class="row justify-content-center">
 
-  <!-- Footers 2 -->
-  <footer class="fixed-bottom fdb-block footer-small" style="background: linear-gradient(90deg, #ff512f 0%, #dd2476 100%)">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-12 col-md-8">
-          <ul data-spy="scroll" class="nav justify-content-center justify-content-md-start">
-            <li class="nav-item active">
-              <a class="nav-link" href="/landing">HOME</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#SERVICES">SERVICES</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#CONTACT">CONTACT US</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/see_advices">ADVICE</a>
-            </li>
+                <div class="col-lg-4 col-md-7 col-sm-9">
+                    <div class="pricing-style-twelve mt-40">
 
-              
-            
-          </ul>
-        </div>
+                        <div class="pricing-header text-center">
+                            <h5 class="sub-title mb-3">Basic</h5>
+                            <p class="year">Lorem ipsum dolor sit amet consectetur adipisicing elit. A, expedita!</p>
+                        </div>
+                    </div> <!-- single pricing -->
+                </div>
 
-        <div class="col-12 col-md-4 mt-4 mt-md-0 text-white text-center text-md-right">
-          © 2020 Ujikom. All Rights Reserved
-        </div>
-      </div>
-    </div>
-  </footer>
 
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </section>
+
+    <section class="contact-area pt-50 pb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="section-title">
+                        <h3 class="title">Contact Us</h3>
+                    </div>
+                    <div class="contact-form form-style-four mt-15">
+                        <form action="#">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-input mt-15">
+                                        <label>Judul Laporan</label>
+                                        <div class="input-items default">
+                                            <i class='lni lni-clipboard'></i>
+                                            <input type="text" placeholder="Masukan judul laporan">
+                                        </div>
+                                    </div> <!-- form input -->
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-input mt-15">
+                                        <label>Isi Laporan</label>
+                                        <div class="input-items default">
+                                            <i class="lni-pencil-alt"></i>
+                                            <textarea placeholder="Tuliskan pesan laporan mu di sini"></textarea>
+                                        </div>
+                                    </div> <!-- form input -->
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-input mt-15">
+                                        <label for="exampleFormControlFile1">Example file input</label>
+                                        <div class="input-items default">
+
+                                            <i class='lni lni-image'></i>
+                                            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                        </div>
+                                    </div> <!-- form input -->
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="single-form pt-25">
+                                        <div class="input-form rounded-buttons">
+                                            <button class="main-btn rounded-three" type="submit">SEND MESSAGE</button>
+                                        </div>
+                                    </div> <!-- single form -->
+                                </div>
+                            </div> <!-- row -->
+                        </form>
+                    </div> <!-- contact form -->
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </section>
+
+    <footer class="footer-area footer-one p-5">
+
+        <div class="footer-copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="copyright text-center d-md-flex justify-content-between align-items-center">
+                            <p class="text">Copyright Ujikom © 2020. All Rights Reserved</p>
+                            <!-- <ul class="social">
+                                <li><a href="https://facebook.com/uideckHQ"><i class="lni-facebook-filled"></i></a></li>
+                                <li><a href="https://twitter.com/uideckHQ"><i class="lni-twitter-original"></i></a></li>
+                                <li><a href="https://instagram.com/uideckHQ"><i class="lni-instagram-original"></i></a>
+                                </li>
+                                <li><a href="#"><i class="lni-linkedin-original"></i></a></li>
+                            </ul> -->
+                        </div> <!-- copyright -->
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </div> <!-- footer copyright -->
+    </footer>
+
+
+
+
+    <!--====== jquery js ======-->
+  <script src="{{asset('template/js/vendor/modernizr-3.6.0.min.js')}}"></script>
+    <script src="{{asset('template/js/vendor/jquery-1.12.4.min.js')}}"></script>
+
+    <!--====== Bootstrap js ======-->
+    <script src="{{asset('template/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('template/js/popper.min.js')}}"></script>
+
+    <!--====== Images Loaded js ======-->
+    <script src="{{asset('template/js/imagesloaded.pkgd.min.js')}}"></script>
+
+    <!--====== Appear js ======-->
+    <script src="{{asset('template/js/jquery.appear.min.js')}}"></script>
+
+
+
+    <!--====== Main js ======-->
+    <script src="{{asset('template/js/main.js')}}"></script>
 
 </body>
-
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-  integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-</script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-</script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-  integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-</script>
-<script src="https://kit.fontawesome.com/20e16e5617.js"></script>
-
 
 </html>
