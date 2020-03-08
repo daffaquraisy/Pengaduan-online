@@ -82,6 +82,9 @@
                                       <button class="btn btn-solid text-white font-weight-bold" href="#" >LOGOUT</button>
                                       </form>
                                     </li>
+                                    <li>
+                                      <p class="text-white">{{\Auth::user()->name}}</p>
+                                    </li>
                                 </ul>
                             </div>
                         </nav> <!-- navbar -->
