@@ -28,16 +28,19 @@
 
         <label for="">Roles</label>
         <br>
-        <input type="checkbox" {{in_array("ADMIN", json_decode($user->roles)) ? "checked" : ""}} name="roles[]" class="form-control {{$errors->first('roles') ? "is-invalid" : ""}}" id="ADMIN" value="ADMIN">
+        <input type="checkbox" {{$user->roles == 'ADMIN' ? 'checked' : ''}} class="{{$errors->first('roles') ? "is-invalid" : "" }}" name="roles[]"id="ADMIN" value="ADMIN">
         <label for="ADMIN">Administrator</label>
-        <input type="checkbox" {{in_array("PETUGAS", json_decode($user->roles)) ? "checked" : ""}} name="roles[]" class="form-control {{$errors->first('roles') ? "is-invalid" : ""}}" id="PETUGAS" value="PETUGAS">
+
+        <input type="checkbox" {{$user->roles == 'PETUGAS' ? 'checked' : ''}} class="{{$errors->first('roles') ? "is-invalid" : "" }}" name="roles[]"id="PETUGAS" value="PETUGAS">
         <label for="PETUGAS">Staff</label>
-        <input type="checkbox" {{in_array("MASYARAKAT", json_decode($user->roles)) ? "checked" :""}} name="roles[]" class="form-control {{$errors->first('roles') ? "is-invalid" : ""}}" id="MASYARAKAT" value="MASYARAKAT">
+
+        <input type="checkbox" {{$user->roles == 'MASYARAKAT' ? 'checked' : ''}} class="{{$errors->first('roles') ? "is-invalid" : "" }}" name="roles[]"id="MASYARAKAT" value="MASYARAKAT">
         <label for="MASYARAKAT">Masyarakat</label>
 
         <div class="invalid-feedback">
             {{$errors->first('roles')}}
         </div>
+        <br>
         <br>
         <label for="phone">Nomor Telepon</label>
         <br>

@@ -38,13 +38,13 @@
         <label for="">Roles</label>
         <br>
 
-            <input class="form-control {{$errors->first('roles') ? "is-invalid" : "" }}"  type="checkbox" name="roles[]" id="ADMIN" value="ADMIN">
+            <input class="{{$errors->first('roles') ? "is-invalid" : "" }}"  type="checkbox" name="roles[]" id="ADMIN" value="ADMIN">
         <label for="ADMIN">Administrator</label>
 
-            <input class="form-control {{$errors->first('roles') ? "is-invalid" : "" }}" type="checkbox" name="roles[]" id="PETUGAS" value="PETUGAS">
+            <input class="{{$errors->first('roles') ? "is-invalid" : "" }}" type="checkbox" name="roles[]" id="PETUGAS" value="PETUGAS">
         <label for="PETUGAS">Petugas</label>
 
-            <input class="form-control {{$errors->first('roles') ? "is-invalid" : "" }}" type="checkbox" name="roles[]" id="MASYARAKAT" value="MASYARAKAT">
+            <input class="{{$errors->first('roles') ? "is-invalid" : "" }}" type="checkbox" name="roles[]" id="MASYARAKAT" value="MASYARAKAT">
         <label for="MASYARAKAT">Masyarakat</label>
 
         <div class="invalid-feedback">

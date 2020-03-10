@@ -136,7 +136,7 @@ class UserController extends Controller
         $user = \App\User::findOrFail($id);
         $user->name = $request->get('name');
         $arrayTostring = implode(',', $request->input('roles'));
-        $new_user['roles'] = $arrayTostring;
+        $user['roles'] = $arrayTostring;
         $user->username = $request->get('username');
         $user->email = $request->get('email');
         $user->no_telp = $request->get('no_telp');
