@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Route::group(['middleware' => 'auth'], function () {
 
-    Route::get('/landing', 'AdviceController@showAdvices')->name('landing');;
+    Route::get('/landing', 'AdviceController@showAdvices')->name('landing');
 });
 
 Auth::routes();
