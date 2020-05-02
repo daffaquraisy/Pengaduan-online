@@ -15,7 +15,8 @@ class AdministratorSeeder extends Seeder
         $administrator->username = "Admin";
         $administrator->name = "Administrator";
         $administrator->email = "admin@gmail.com";
-        $administrator->roles = json_encode(["ADMIN"]);
+        $administrator->roles = "ADMIN";
+        $administrator->no_telp = "0814252612";
         $administrator->password = \Hash::make("12345678");
 
         $administrator->save();
