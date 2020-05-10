@@ -1,0 +1,126 @@
+body {
+    font-family: 'Montserrat';
+}
+
+nav ul li a,
+nav .brand-logo {
+    color: #fff;
+    font-weight: 600;
+}
+
+.comp {
+    padding-top: 20px;
+}
+
+
+.hero {
+    padding: 5px;
+    height: 390px;
+}
+
+
+
+.myjumbo {
+    font-weight: 600;
+    font-size: 50px;
+    color: white;
+    padding-top: 30px;
+}
+
+.subjumbo {
+    font-weight: 400;
+    font-size: 18px;
+    color: white;
+    padding: 5px;
+}
+
+.myjumbo-2 {
+    font-weight: 600;
+    font-size: 50px;
+    color: white;
+    padding-top: 30px;
+}
+
+.subjumbo-2 {
+    font-weight: 400;
+    font-size: 18px;
+    color: white;
+    margin-top: -20px;
+}
+
+.mybtn {
+    color: #667eea;
+    background-color: white;
+    font-weight: 400;
+}
+
+.about,
+.skill,
+.testi,
+.about-me {
+    padding: 5px;
+}
+
+.about h3,
+.contact h3,
+.about-me h3,
+.testi h3 {
+    color: #667eea;
+    font-weight: 600;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.capt {
+    font-weight: 400;
+    color: #171717;
+    font-size: 18px;
+}
+
+.skill h3 {
+    color: #fff;
+    font-weight: 600;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.skill h4 {
+    color: #171717;
+    font-weight: 600;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+footer p {
+    margin-top: 80px;
+}
+
+.page-footer {
+    height: 100px;
+}
+
+.msg {
+    width: 100%;
+    border: 1px solid;
+    padding: 10px;
+    margin: 20px;
+    color: grey;
+}
+
+.msg-error {
+    border-color: #d32f2f;
+    background-color: #ef5350;
+    color: white;
+}
+
+.msg-alert {
+    border-color: #ef6c00;
+    background-color: #ff9800;
+    color: white;
+}
+
+.msg-info {
+    border-color: #0288d1;
+    background-color: #29b6f6;
+    color: white;
+}

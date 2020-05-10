@@ -66,15 +66,10 @@ class AdviceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
-
     public function showAdvices()
     {
         $advices = \App\Advice::with('users')->with('reports')->paginate(10);
-        return view('advices', ['advices' => $advices]);
+        return view('landing', ['advices' => $advices]);
     }
 
     /**
