@@ -32,6 +32,8 @@
 
 <br>
 
+
+<div class="table-responsive">
 <table class="table table-bordered">
     <thead>
         <tr>
@@ -76,4 +78,6 @@
         </tr>
     </tfoot>
 </table>
+</div>
+</div>
 @endsection
